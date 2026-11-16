@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const nb1 = '10' // string
+        const nb2 = 10 // number
+
+        if(nb1 == nb2) { // ici c'est vrai 10 = "10" en valeur
+            console.log('10 = "10" en valeur')
+        } else if(nb2 < 20) {
+            console.log('Ne rentre jamais ici parce que la première condition est vraie et après on sort de la condition')
+        }
+        
+        if(nb1 === nb2) { // ici c'est faux 10 n'est pas égale "10" en valeur et en type
+        // type string est différent du type number
+            console.log('Dans cet exemple, je ne rentre jamais ici')
+        }
+        const country = prompt('Quel est votre pays ? ');
+        switch(country) {
+            case 'france':
+                console.log('france != France donc false, on ne rentre pas ici');
+            break;
+            case 'France':
+                console.log('on entre');
+            break;
+            default:
+                console.log('Cas par défaut, si aucune des conditions ci-dessus est vraie, donc pas france ou France');
+            break;
+        }
+
+        switch(country.toLocaleLowerCase()) {
+            case 'france':
+                console.log("peu importe la casse, tant qu'on a france ça passe");
+            break;
+
+            default:
+                console.log('Cas par défaut, si aucune des conditions ci-dessus est vraie');
+            break;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const firstname = prompt('Votre prénom ?');
+        const lastname = prompt('Votre nom ?');
+        // concaténer mettre les infos (texte et variable) bout à bout
+        const fullnameOldConcat = 'Vous êtes ' +  firstname + ' ' + lastname; // legacy (ancienne façon) avec l'opérateur + 
+        // apostrophe à l'envers ALT GR + 7 (pas le 7 du clavier numérique mais au niveau des chiffres pour les tirets 6 et 8)
+        const fullnameFreshConcat = `Vous êtes ${firstname} ${lastname}`;
+        console.log('utilisateur', fullnameFreshConcat, fullnameOldConcat);
+
+        // Avec confirm
+        const isAdult = confirm('Avez-vous plus de 18 ans ?')
+        console.log('isAdult', isAdult) // booléen vrai ou faux
+
+        // Attention tout ce qui vient du prompt est un string (caractère)
+        const nb1 = prompt('Saisissez un nombre ?'); // toujours un string
+        const nb2 = prompt('Saisissez un autre nombre ?'); // toujours un string
+        const sumFalthy = nb1 + nb2;
+        console.log('Somme', sumFalthy);
+        // parseInt et Number permettent de caster
+        const sum = parseInt(nb1) + Number(nb2) // parser ou caster le string en nombre avec l'une des 2 méthodes
+        console.log('sum', sum)
+    </script>
+</body>
+</html>
