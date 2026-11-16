@@ -1,0 +1,1 @@
+// usage externe = séparer le code js dans un fichier en dehors du HTML

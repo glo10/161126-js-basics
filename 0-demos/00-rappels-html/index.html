@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Demo rappels HTML</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <!-- avec first.js, le contenu de la page HTML n'est pas encore chargé => le first.js est chargé avant le contenu de la page -->
+    <script src="./js/first.js"></script>
+    <!-- avec  second.js et l'attribut defer, le chargement est différé à la fin de la page donc le body sera chargé avant -->
+    <script src="./js/second.js" defer></script>
   </head>
   <body>
     <!-- header en-tête de la page, généralement le menu de navigation -->
@@ -25,5 +29,10 @@
     </main>
     <!-- footer pour le pied de page -->
     <footer></footer>
+    <!-- Tout ce qui est avant le js third.js est chargé -->
+    <script src="./js/third.js"></script>
+    <script>
+        // Code JS interne = dans le HTML directement
+    </script>
   </body>
 </html>
