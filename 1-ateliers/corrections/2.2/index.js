@@ -177,10 +177,10 @@ function slice (limit = 50, total = 10, min = 0, max = 100) {
 }
 
 // Algo 14
-function shortestWord(word) {
-  let shortest = word[0]; // hypothèse que le premier mot est le plus court
-  for (const word of word) { // utilisation de for of mais en utilisant un for classique ça revient au même
-    if (mot.length < shortest.length) {
+function shortestWord(words) {
+  let shortest = words[0]; // hypothèse que le premier mot est le plus court
+  for (const word of words) { // utilisation de for of mais en utilisant un for classique ça revient au même
+    if (word.length < shortest.length) {
       shortest = word; // ici on trouve un mot plus petit et mise à jour du mot le plus petit
     }
   }
