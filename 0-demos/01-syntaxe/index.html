@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Ici les 2 variables sont différentes
+        /**
+         * Pour déclarer une variable mot-clé let, const ou var (var on va éviter)
+         * Puis le nom avec la case sensitive (min et maj sont importants)
+         * Puis l'opérateur d'affectation ou d'assignation =
+         * Puis la valeur
+         * 
+         * Avec JS c'est possible de déclarer une variable sans affecter une valeur
+         *
+         * */
+        const firstname = 'John'
+        const Firstname = 'Alice'
+        // Avec const, la valeur a une vocation d'être fixe dans le temps (durée d'exécution de votre programme)
+        // firstname = 'Bob' pas possible génère une erreur
+        // Avec let, la valeur peut être modifié dans le temps
+        let age
+        const nb = 10
+        age = 40
+        age = true
+        age = 'hello world'
+        console.log('age', age)
+        // Conditions
+        if(nb === 10) {
+            const nb = 40
+            console.log('nb', nb) // 40 car nb est déclarée et vaut 40 dans ce scope
+        } else if(nb > 10) {
+            console.log('> 10', nb)
+        } else {
+            console.log('< 10', nb)
+        }
+        // boucle
+        for(let i = 0; i < 10; i++) {
+            console.log('i', i)
+        }
+        // fonctions
+        function hello(firstname) {
+            console.log('Hello', firstname)
+        }
+        hello('Bob')
+    </script>
+</body>
+</html>
