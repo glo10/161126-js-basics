@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Titre 1</h1>
+    <script>
+        /**
+         * window est implicite
+         * window.document
+         * window.navigator
+         * window.history
+         */
+        const h1 = document.querySelector('h1')
+        setTimeout(() => {
+            h1.innerText = 'h1 modifié depuis le DOM'
+        }, 3000)
+        /**
+         * Pour voir toutes les méthodes et propriétés d'un objet via console.dir(objet)
+         * Après il suffit d'utiliser la notation pointée pour aller chercher les props et les méthodes
+         */
+        console.dir(history, screen, navigator, location)
+        // Navigation dans l'historique
+
+    </script>
+    <script src="index.js"></script>
+    <script>
+        geoLocationUser()
+    </script>
+</body>
+</html>
