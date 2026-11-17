@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="email">
+    <input type="password">
+    <input type="number">
+    <input type="color">
+    <button>Cliquez-moi</button>
+    <script>
+        // 1. Séléction de l'élément à qui on va greffer un événement
+        const email = document.querySelector('input[type=email]')
+        const password = document.querySelector('input[type=password]')
+        const btn = document.querySelector('button')
+        // 2. Greffer un événement à l'élément
+        email.addEventListener('blur', function(event) {
+            // pour chaque événement il y a toujours un objet qu'on nomme e ou evt ou event qui va représenter l'événement qui a eu lieu
+            // avec la possibilité de savoir ou l'événement a eu lieu (emplacement souris, touche tapé, etc)
+            // et donc de récupérer sa valeur par exemple
+            console.log('Event', event)
+            const value = event.target.value
+            // Cette fonction s'exécute uniquement lorsque l'événement a eu lieu
+            let p = document.querySelector('p')
+            if(!p) {
+                p = document.createElement('p')
+            }
+            p.innerText = '' // j'efface ce qu'il y avait avant
+            p.innerText = `Vous avez saisi ${value}`
+            email.insertAdjacentElement('beforebegin', p)
+        })
+    </script>
+</body>
+</html>
