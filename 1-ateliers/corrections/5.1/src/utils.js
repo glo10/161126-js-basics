@@ -1,9 +1,17 @@
 
+/**
+ * add Listener on input HTML ELEMENT
+ * @param {HTMLInputElement} element 
+ */
 export function onInput(element) {
   element.addEventListener("input", onInputCallBack);
 }
 
-export function onInputCallBack(e) {
+/**
+ * trigger after event input
+ * @param {EventTarget} e 
+ */
+function onInputCallBack(e) {
   const span = document.querySelector(`#v-${e.target.id} span`);
   let val = e.target.value;
   if (span) {
@@ -14,6 +22,10 @@ export function onInputCallBack(e) {
   }
 }
 
+/**
+ * Add 
+ * @param {HTMLFormElement} form 
+ */
 export function addTechno(form) {
   form.addEventListener("submit", (e) => {
     e.preventDefault();

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <input type="email" placeholder="Saisissez votre email" />
+      <input type="password" placeholder="Saisissez votre mot de passe" />
+      <input type="submit" value="Valider" />
+    </form>
+    <a href="https://google.com">Google</a>
+    <script>
+        // Comportement par défaut d'un lien est de rediriger vers la page indiqué dans l'attribut href
+        const a = document.querySelector("a");
+        /**
+         * Comportement par defaut d'un formulaire est sa soumission (envoi des données vers le serveur qui doit faire le traitement) lorsqu'on clique sur un élément de type
+         * <button> ou <input type="button"> ou <input type="submit"> présent entre les balises <form></form>
+         * */
+      document.querySelector("form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        // Donc on peut ici faire les vérifications nécessaires avant de soumettre le formulaire
+      });
+      a.addEventListener("click", function (e) {
+        e.preventDefault(); // Empêche la redirection vers Google ici
+        const warning = confirm("Etes vous sur ?");
+        if (warning) {
+          location.href = a.href; // redirige vers Google
+        } else {
+            console.log('A choisi de rester')
+        }
+      });
+    </script>
+  </body>
+</html>
+l
