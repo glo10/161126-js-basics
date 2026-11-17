@@ -51,3 +51,23 @@ function geoLocationUser() {
   );
 }
 
+function openWindow() {
+  const w = 200;
+  const h = 150;
+  const newPage = window.open(
+    "https://www.ib-formation.fr/formations/developpement-web-et-mobilite/javascript-fondamentaux",
+    "_blank",
+    `width=${w},height=${h}`,
+  );
+  // Coordonnées pour centrer la fenêtre
+  const centerH = window.screen.width / 2 - w / 2;
+  const centerV = window.screen.height / 2 - h / 2;
+  if (newPage) {
+    newPage.focus();
+    newPage.moveTo(centerH, centerV);
+    // fermeture au bout de 10 secondes
+    setTimeout(function () {
+      newPage.close();
+    }, 10 * 1000);
+  }
+}
