@@ -10,21 +10,19 @@
     <script>
         /**
          * window est implicite
-         * window.document
-         * window.navigator
-         * window.history
+         * document au lieu de window.document
+         * navigator au lieu de window.navigator
+         * history au lieu de window.history
          */
         const h1 = document.querySelector('h1')
         setTimeout(() => {
             h1.innerText = 'h1 modifié depuis le DOM'
         }, 3000)
         /**
-         * Pour voir toutes les méthodes et propriétés d'un objet via console.dir(objet)
-         * Après il suffit d'utiliser la notation pointée pour aller chercher les props et les méthodes
+         * Pour voir toutes les méthodes et propriétés d'un objet en détails => utilisez console.dir(objet)
+         * Après il suffit d'utiliser la notation pointée pour aller chercher une propriété ou une méthode
          */
         console.dir(history, screen, navigator, location)
-        // Navigation dans l'historique
-
     </script>
     <script src="index.js"></script>
     <script>
