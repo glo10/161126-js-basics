@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        action => l'URL vers le serveur qui va traiter les infos
+        method d'envoi soit GET (par défaut) ou POST
+            GET : données à transmettre limité à X caractères champs et valeurs sont visibles dans l'URL
+            POST : pas de limite sur les données à transmettre, champs et valeurs ne sont pas visibles dans l'URL mais reste dans la devTools
+    -->
+    <form action="http://localhost:3000/submit" method="post">
+      <!-- 4 FAMILLES
+            1. input (saisie limitée à X caractères)
+                plusieurs types text (par défaut), email, password, checkbox, radio, color, number, file, button, submit, reset, etc.
+            2. select (saisie non limitée)
+                liste d'option fermée, choix d'un ou plusieurs valeurs
+            3. textarea ()
+                un grand champ de saisi pour les commentaires
+            4. datalist
+                Liste d'option avec l'autocomplétion (on commence à taper et s'il y a une valeur proche de notre saisie, on peut la choisir)
+        
+            En plus on a la balise label pour afficher les noms de champs pour aider l'utilisateur de savoir quelle info saisir
+        -->
+      <!-- Dans tous les champs d'un formulaire l'attribut name est obligatoire pour identifier un champ précis -->
+      <label for="">Saisissez votre prénom</label>
+      <input type="text" placeholder="Prénom" name="firstname" />
+      <input type="email" placeholder="email" name="email" />
+      <label for="">Saisissez votre mot de passe</label>
+      <input type="password" name="password" />
+      <input type="number" placeholder="age" name="age" />
+      <!-- radio -->
+      <p>Choisissez votre langage :</p>
+      <input type="radio" id="html" name="fav_language" value="HTML" />
+      <label for="html">HTML</label><br />
+      <input type="radio" id="css" name="fav_language" value="CSS" />
+      <label for="css">CSS</label><br />
+      <input
+        type="radio"
+        id="javascript"
+        name="fav_language"
+        value="JavaScript"
+      />
+      <label for="javascript">JavaScript</label>
+      <br /><br />
+      <!-- checkbox -->
+      <p>Choisissez un objet</p>
+      <input type="checkbox" id="vehicle1" name="bike" value="Vélo" />
+      <label for="vehicle1"> I have a bike</label><br />
+      <input type="checkbox" id="vehicle2" name="car" value="Car" />
+      <label for="vehicle2"> I have a car</label><br />
+      <input type="checkbox" id="vehicle3" name="boat" value="Boat" />
+      <label for="vehicle3"> I have a boat</label><br /><br />
+
+      <label for="">Un fichier à charger</label>
+      <input type="file" name="file" />
+      <br />
+      <label for="comment">Saisissez un commentaire</label>
+      <textarea name="comment" id="comment"></textarea>
+      <br />
+      <!-- SELECT -->
+      <select name="cars" id="cars" multiple>
+        <!--
+        Entre le balise option c'est le texte visible par l'utilisateur
+        l'attribut value c'est la valeur qui sera envoyé au serveur 
+        -->
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </select>
+      <br />
+      <label for="browser">Choose your browser from the list:</label>
+      <input list="browsers" name="browser" id="browser" />
+      <datalist id="browsers">
+        <option value="Edge"></option>
+        <option value="Firefox"></option>
+        <option value="Chrome"></option>
+        <option value="Opera"></option>
+        <option value="Safari"></option>
+      </datalist>
+      <br />
+      <input type="submit" value="Valider" />
+      <input type="reset" value="Tout supprimer" />
+    </form>
+  </body>
+</html>
