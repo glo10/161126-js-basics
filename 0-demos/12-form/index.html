@@ -27,12 +27,18 @@
         -->
       <!-- Dans tous les champs d'un formulaire l'attribut name est obligatoire pour identifier un champ précis -->
       <label for="">Saisissez votre prénom</label>
-      <input type="text" placeholder="Prénom" name="firstname" />
-      <input type="email" placeholder="email" name="email" />
+      <!-- required champ obligatoire -->
+      <input type="text" placeholder="Prénom" name="firstname" maxlength="20" required />
+      <input type="email" placeholder="email" name="email" required />
       <label for="">Saisissez votre mot de passe</label>
       <input type="password" name="password" />
-      <input type="number" placeholder="age" name="age" />
-      <!-- radio -->
+      <!-- min, max et step attributs spécifique au type number
+        min : valeur minimale
+        max: max
+        step : le pas (par défaut 1 mais on peut mettre ce qu'on veut)
+      -->
+      <input type="number" placeholder="age" name="age" min="20" max="80" step="10" />
+      <!-- radio : choix unique -->
       <p>Choisissez votre langage :</p>
       <input type="radio" id="html" name="fav_language" value="HTML" />
       <label for="html">HTML</label><br />
@@ -46,7 +52,7 @@
       />
       <label for="javascript">JavaScript</label>
       <br /><br />
-      <!-- checkbox -->
+      <!-- checkbox : choix multiple -->
       <p>Choisissez un objet</p>
       <input type="checkbox" id="vehicle1" name="bike" value="Vélo" />
       <label for="vehicle1"> I have a bike</label><br />
