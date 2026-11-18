@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+    <script>
+        const div = document.querySelector('#container')
+        // Récupérer des ressources externes ou internes => fetch() qui est asynchrone (non bloquant, ça n'attend pas par ex setTimeout(), setInterval(), addEventListener())
+        // Charger le fichier local list.html donc du texte puis l'injecter dans la div
+        fetch('list.html')
+        .then(res => {
+            console.log('res list', res)
+            return res.text()
+        }) // méthode dédié pour du texte brut ou html
+        .then(listHtml => {
+            div.innerHTML = listHtml
+            return listHtml
+        }).catch(error => {
+            div.innerHTML = '<p>Impossible de récupérer le html</p>'
+        })
+        // Charger des ressources externes en JSON (JavaScript Object Notation) pour créer des images et 
+        //      les ajouter dans la div
+        fetch("https://jsonplaceholder.typicode.com/photos")
+        .then(data => data.json())
+        .then(photos => { // les données dispos et on peut les traiter
+            for(let i = 0; i < 20; i++){
+                let img = document.createElement('img')
+                img.src = photos[i].thumbnailUrl
+                div.append(img)
+            }
+        }).catch(error => {
+            div.innerHTML = '<p>Impossible de récupérer les photos</p>'
+        })
+    </script>
+</body>
+</html>

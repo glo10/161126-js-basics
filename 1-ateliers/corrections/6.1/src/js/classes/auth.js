@@ -12,7 +12,7 @@ export default class Auth {
   }
 
   /**
-   * show (on focus)/remove (on blur) help messag
+   * show (on focus)/remove (on blur) help message
    */
   onToggleHelpMessage() {
     const size = this.inputs.length;
@@ -42,7 +42,8 @@ export default class Auth {
     const size = this.inputs.length;
     for (let i = 0; i < size; i++) {
       /**
-       * var parce qu'on veut accéder également en dehors de la boucle
+       * var parce qu'on veut pour les variables ci-dessous 
+       *  une portée sur toute la fonction pas que dans la boucle
        */
       var alertUserElt = e.target.parentElement.querySelector(
         ".alert.alert-danger",
