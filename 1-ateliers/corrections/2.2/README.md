@@ -2,18 +2,18 @@
 
 <!-- AUTO-GENERATED -->
 
-### 1-ateliers/corrections/2.2
+### 1-ateliers/corrections/2.2/
 
 #### `1-ateliers/corrections/2.2/index.html`
 
 ```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Correction Atelier 2.2 : JavaScript, le coeur du langage : algorithmes</title>
-    <script src="index.js"></script>
+    <script src="index.js" type="module"></script>
 </head>
 <body>
     
@@ -22,6 +22,24 @@
 ```
 
 #### `1-ateliers/corrections/2.2/index.js`
+
+```javascript
+import { 
+    shortestWord,
+    divide,
+    checkEmail
+} from "./util.js";
+
+console.log("", shortestWord(["a", "bb", "cccc"]));
+console.log("", shortestWord(["aaaaaaaa", "bbbbb", "ccc"]));
+console.log("", divide(10, 2));
+console.log("", divide(20, 0));
+console.log("", checkEmail("chuck@"));
+console.log("", checkEmail("bob@gmail.com"));
+
+```
+
+#### `1-ateliers/corrections/2.2/util.js`
 
 ```javascript
 // Algo 1
@@ -128,7 +146,7 @@ function tree (nb) {
 }
 
 // Algo 8
-function checkEmail (email) {
+export function checkEmail (email) {
   // regex d'un email un peu plus robuste
   /**
    * Pour les emails, téléphones, adresse, etc. (choses communes),
@@ -203,10 +221,15 @@ function slice (limit = 50, total = 10, min = 0, max = 100) {
 }
 
 // Algo 14
-function shortestWord(word) {
-  let shortest = word[0]; // hypothèse que le premier mot est le plus court
-  for (const word of word) { // utilisation de for of mais en utilisant un for classique ça revient au même
-    if (mot.length < shortest.length) {
+/**
+ * Return the shortest word
+ * @param {Array} words 
+ * @returns string
+ */
+export function shortestWord(words) {
+  let shortest = words[0]; // hypothèse que le premier mot est le plus court
+  for (const word of words) { // utilisation de for of mais en utilisant un for classique ça revient au même
+    if (word.length < shortest.length) {
       shortest = word; // ici on trouve un mot plus petit et mise à jour du mot le plus petit
     }
   }
@@ -215,7 +238,13 @@ function shortestWord(word) {
 }
 
 // Algo 15
-function divide (nb1, nb2) {
+/**
+ * Divide 2 numbers
+ * @param {number} nb1 
+ * @param {number} nb2 
+ * @returns number || Error
+ */
+export function divide (nb1, nb2) {
   if (nb2 === 0) {
     throw new Error('Impossible to divide by 0')
   }
