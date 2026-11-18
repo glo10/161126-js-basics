@@ -9,23 +9,24 @@
     <div id="container"></div>
     <script>
         const div = document.querySelector('#container')
-        // Récupérer des ressources externes ou internes => fetch() qui est asynchrone (non bloquant, ça n'attend pas par ex setTimeout(), setInterval(), addEventListener())
+        // Récupérer des ressources externes ou internes => fetch() qui est asynchrone (non bloquant, ça n'attend pas le resultat pour exécuter la suite
+        // setTimeout(), setInterval(), addEventListener() sont aussi asynchrones
         // Charger le fichier local list.html donc du texte puis l'injecter dans la div
         fetch('list.html')
         .then(res => {
-            console.log('res list', res)
-            return res.text()
-        }) // méthode dédié pour du texte brut ou html
-        .then(listHtml => {
+            console.log("resultat de la requête qui ne permet pas d'exploiter le body", res)
+            return res.text() // méthode dédié pour transformer le body et l'exploiter dans le cadre d'un contenu textuel brut ou du html
+        }) 
+        .then(listHtml => {// c'est à partir d'ici qu'on peut exploiter le résultat
             div.innerHTML = listHtml
             return listHtml
-        }).catch(error => {
+        }).catch(error => { // en cas d'erreur, on capture et on gère
             div.innerHTML = '<p>Impossible de récupérer le html</p>'
         })
         // Charger des ressources externes en JSON (JavaScript Object Notation) pour créer des images et 
         //      les ajouter dans la div
         fetch("https://jsonplaceholder.typicode.com/photos")
-        .then(data => data.json())
+        .then(data => data.json()) // même raisonnement que .text() mais appliqué au contenu JSON (du texte proche de la notation objet littéral de JS)
         .then(photos => { // les données dispos et on peut les traiter
             for(let i = 0; i < 20; i++){
                 let img = document.createElement('img')
